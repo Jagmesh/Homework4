@@ -31,7 +31,38 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  let number = +prompt("Введите целое положительное число в диапазоне от 0 до 1000: ");
+
+  let numberObj = getDigitsOfNumber(number);
+
+  function getDigitsOfNumber(number) {
+      if(isNaN(number)) {
+        console.error("Катастрофическая ошибка: Вы ввели не число!")
+        return null;
+      }
+      else {
+        if (Number.isInteger(number))
+          if(number>=0 && number<1000) {
+          let tempObj = {
+            units: number%10,
+            dozens: Math.trunc(number/10)%10,
+            hundreds: Math.trunc(number/100)%10
+          }
+          return tempObj;
+          }
+          else {
+            console.error("Катастрофическая ошибка: Вы ввели число, не входящее в диапазон от 0 до 1000 (от нуля до 999 включительно)!")
+            return null;
+          }
+        else {
+          console.error("Катастрофическая ошибка: Вы ввели дробное число!")
+          return null;
+          }
+        }
+      }
+      
+  console.log(numberObj);  
+
 </script>
 </body>
 </html>
