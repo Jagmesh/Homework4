@@ -34,7 +34,15 @@
   let number = +prompt("Введите целое положительное число в диапазоне от 0 до 1000: ");
 
   let numberObj = getDigitsOfNumber(number);
-
+  
+  /**
+   * @function Gets digits of the number within the range of [0,999]. Returns an Object w/ properties:
+   *   1. units - contains a number, the number of units in the function parameter.
+   *   2. dozens - contains a number, the number of tens in the function parameter.
+   *   3. hundreds - contains a number, the number of hundreds in the function parameter.
+   *  If the given number doesn't fit a required range, then return null 
+   *  and share a specific error message in console
+   */
   function getDigitsOfNumber(number) {
       if(isNaN(number)) {
         console.error("Катастрофическая ошибка: Вы ввели не число!")
